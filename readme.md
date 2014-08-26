@@ -4,12 +4,12 @@ Written by Rosska85
 Installation
 ============
 
-****STEP 1 (Copying Files)****
+**STEP 1 (Copying Files)**
 
 First, unpack your mission file.<br>
 Now copy the "SharePlotPoles" folder to your mission directory.
 
-****STEP 2 (Modifying fn_selfActions.sqf)****<br>
+**STEP 2 (Modifying fn_selfActions.sqf)**<br>
 **A**<br>
 Find
 
@@ -133,7 +133,7 @@ AFTER that, add
 	
 SAVE AND CLOSE
 
-****STEP 3 (Modifying variables.sqf)<br>
+**STEP 3 (Modifying variables.sqf)**<br>
 After
 	
 	//Player self-action handles
@@ -147,7 +147,7 @@ Add
 	
 SAVE AND CLOSE
 
-****STEP 4 (Modifying player_build.sqf AND player_upgrade.sqf)****<br>
+**STEP 4 (Modifying player_build.sqf AND player_upgrade.sqf)**<br>
 BOTH OF THESE FILES NEED THE SAME EDIT, MAKE SURE YOU DO BOTH FILES!!!!
 
 Find
@@ -165,7 +165,7 @@ REPLACE it with
 
 SAVE AND CLOSE
 
-****STEP 5 (Modifying remove.sqf)****<br>
+**STEP 5 (Modifying remove.sqf)**<br>
 Find
 
 	// check if friendly to owner
@@ -179,7 +179,7 @@ REPLACE it with
 	// check if friendly to owner
 	if(_playerUID != _ownerID || !(_hasBuildRights)) then {
 	
-****STEP 6 This one is in your dayz_server.pbo (Modifying server_monitor.sqf)****<br>
+**STEP 6 This one is in your dayz_server.pbo (Modifying server_monitor.sqf)**<br>
 **A**<br>
 Find
 	
@@ -203,7 +203,7 @@ REPLACE that with
 	
 SAVE AND CLOSE
 
-****STEP 7 Again, this is in your dayz_server.pbo (Modifying server_updateObject.sqf)****<br>
+**STEP 7 Again, this is in your dayz_server.pbo (Modifying server_updateObject.sqf)**<br>
 Find
 
 	_inventory = [

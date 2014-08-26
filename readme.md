@@ -1,4 +1,4 @@
-Shared-Plot-Poles v1.0
+Shared-Plot-Poles v1.0<br>
 Written by Rosska85
 
 Installation
@@ -6,11 +6,11 @@ Installation
 
 ****STEP 1 (Copying Files)****
 
-First, unpack your mission file.
+First, unpack your mission file.<br>
 Now copy the "SharePlotPoles" folder to your mission directory.
 
-****STEP 2 (Modifying fn_selfActions.sqf)****
-**A**
+****STEP 2 (Modifying fn_selfActions.sqf)****<br>
+**A**<br>
 Find
 
 	isModularDoor = _typeOfCursorTarget in ["Land_DZE_WoodDoor","Land_DZE_LargeWoodDoor","Land_DZE_GarageWoodDoor","CinderWallDoor_DZ","CinderWallDoorSmall_DZ"];
@@ -22,7 +22,7 @@ AFTER that, add
 	_hasBuildRights = if (_ownerID != "0") then {((getPlayerUID player) in (_addedPUIDS));}; //Check it's not a map object/unbuilt object to avoid RPT spam then check if player has rights
 	_hasPlayerUID = player getVariable ["PUIDtoAdd", ""];
 
-**B**
+**B**<br>
 Find
 
 	if (_canDo && (speed player <= 1) && (_cursorTarget isKindOf "Plastic_Pole_EP1_DZ")) then {
@@ -77,7 +77,7 @@ REPLACE that with
     		s_player_maintain_area_preview = -1;
 	 };
 	
-**C**
+**C**<br>
 Find
 
 	if(_isModular && (_playerUID == _ownerID)) then {
@@ -115,7 +115,7 @@ REPLACE that, with
 		 };		
 	 };	
 	 
-**D**
+**D**<br>
 Find
 
 	//Others
@@ -133,7 +133,7 @@ AFTER that, add
 	
 SAVE AND CLOSE
 
-****STEP 3 (Modifying variables.sqf)
+****STEP 3 (Modifying variables.sqf)<br>
 After
 	
 	//Player self-action handles
@@ -147,7 +147,7 @@ Add
 	
 SAVE AND CLOSE
 
-****STEP 4 (Modifying player_build.sqf AND player_upgrade.sqf)****
+****STEP 4 (Modifying player_build.sqf AND player_upgrade.sqf)****<br>
 BOTH OF THESE FILES NEED THE SAME EDIT, MAKE SURE YOU DO BOTH FILES!!!!
 
 Find
@@ -165,7 +165,7 @@ REPLACE it with
 
 SAVE AND CLOSE
 
-****STEP 5 (Modifying remove.sqf)****
+****STEP 5 (Modifying remove.sqf)****<br>
 Find
 
 	// check if friendly to owner
@@ -179,8 +179,8 @@ REPLACE it with
 	// check if friendly to owner
 	if(_playerUID != _ownerID || !(_hasBuildRights)) then {
 	
-****STEP 6 This one is in your dayz_server.pbo (Modifying server_monitor.sqf)****
-**A**
+****STEP 6 This one is in your dayz_server.pbo (Modifying server_monitor.sqf)****<br>
+**A**<br>
 Find
 	
 	_object setVariable ["lastUpdate",time];
@@ -192,7 +192,7 @@ AFTER that, add
 		_object setVariable ["AddedPUIDS", _intentory, true];
 	};
 	
-**B**
+**B**<br>
 Find
 
 	if (count _intentory > 0) then {
@@ -203,7 +203,7 @@ REPLACE that with
 	
 SAVE AND CLOSE
 
-****STEP 7 Again, this is in your dayz_server.pbo (Modifying server_updateObject.sqf)****
+****STEP 7 Again, this is in your dayz_server.pbo (Modifying server_updateObject.sqf)****<br>
 Find
 
 	_inventory = [
@@ -224,7 +224,7 @@ REPLACE that with
 		];
 	};
 	
-SAVE AND CLOSE
+SAVE AND CLOSE<br><br>
 
 YOU'RE DONE!!!! XD
 		

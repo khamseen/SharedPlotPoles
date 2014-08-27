@@ -42,26 +42,27 @@ REPLACE that with
 	//Let players get other player's UID when near a plot pole
 	if (_isMan && (_nearPlotPole distance player < 5)) Then {
 		if (s_player_get_PUID < 0) then {
-			s_player_get_PUID = player addAction [format["<t color='#ff8000'>Get Player UID to add rights on plot pole</t>"], "PUIDsOnPlotPoles\getPlayerUID.sqf", _cursorTarget, 5, false, true, "", ""];
-		} else {
-			player removeAction s_player_get_PUID;
-			s_player_get_PUID = -1;
+			s_player_get_PUID = player addAction [format["<t color='#ff8000'>Get Player UID to add rights on plot pole</t>"], "SharePlotPoles\getPlayerUID.sqf", _cursorTarget, 5, false, true, "", ""];
 		};
+	} else {
+		player removeAction s_player_get_PUID;
+		s_player_get_PUID = -1;
 	};
-	 if (_canDo && (speed player <= 1) && (_cursorTarget isKindOf "Plastic_Pole_EP1_DZ")) then {
-		 if (s_player_maintain_area < 0) then {
-		  	s_player_maintain_area = player addAction [format["<t color='#ff0000'>%1</t>",localize "STR_EPOCH_ACTIONS_MAINTAREA"], "\z\addons\dayz_code\actions\maintain_area.sqf", "maintain", 5, false];
-		 	s_player_maintain_area_preview = player addAction [format["<t color='#ff0000'>%1</t>",localize "STR_EPOCH_ACTIONS_MAINTPREV"], "\z\addons\dayz_code\actions\maintain_area.sqf", "preview", 5, false];
-		 };
+	
+	if (_canDo && (speed player <= 1) && (_cursorTarget isKindOf "Plastic_Pole_EP1_DZ")) then {
+		if (s_player_maintain_area < 0) then {
+			s_player_maintain_area = player addAction [format["<t color='#ff0000'>%1</t>",localize "STR_EPOCH_ACTIONS_MAINTAREA"], "\z\addons\dayz_code\actions\maintain_area.sqf", "maintain", 5, false];
+			s_player_maintain_area_preview = player addAction [format["<t color='#ff0000'>%1</t>",localize "STR_EPOCH_ACTIONS_MAINTPREV"], "\z\addons\dayz_code\actions\maintain_area.sqf", "preview", 5, false];
+		};
 		if (_hasBuildRights || _ownerID == _playerUID) then {
 			if (_hasPlayerUID != "") then {
 				if (s_player_add_PUID < 0) then {
-					s_player_add_PUID = player addAction [format["<t color='#ff8000'>Give player build rights</t>"], "PUIDsOnPlotPoles\addUIDtoPole.sqf", _cursorTarget, 5, false, true, "", ""];
+					s_player_add_PUID = player addAction [format["<t color='#ff8000'>Give player build rights</t>"], "SharePlotPoles\addUIDtoPole.sqf", _cursorTarget, 5, false, true, "", ""];
 				};
 			};
 			if (count _addedPUIDS > 0) then { //Only show remove option if there is someone to remove
 				if (s_player_remove_PUID < 0) then {
-					s_player_remove_PUID = player addAction ["<t color='#ff0000'>Remove a player's build rights</t>", "PUIDsOnPlotPoles\removeUIDfromPole.sqf", _cursorTarget, 5, false, true, "", ""];
+					s_player_remove_PUID = player addAction ["<t color='#ff0000'>Remove a player's build rights</t>", "SharePlotPoles\removeUIDfromPole.sqf", _cursorTarget, 5, false, true, "", ""];
 				};
 			};
 		} else {
@@ -70,22 +71,22 @@ REPLACE that with
 			player removeAction s_player_remove_PUID;
 			s_player_remove_PUID = -1;
 		};
-	 } else {
-    		player removeAction s_player_maintain_area;
-    		s_player_maintain_area = -1;
-    		player removeAction s_player_maintain_area_preview;
-    		s_player_maintain_area_preview = -1;
-	 };
+	} else {
+		player removeAction s_player_maintain_area;
+		s_player_maintain_area = -1;
+		player removeAction s_player_maintain_area_preview;
+		s_player_maintain_area_preview = -1;
+	};
 	
 **C**<br>
 Find
 
 	if(_isModular && (_playerUID == _ownerID)) then {
-		 if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
+		if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
 			// diag_log text "fn_selfactions remove: [can remove modular item]";
-				_player_deleteBuild = true;
-		 };
-	 };
+			_player_deleteBuild = true;
+		};
+	};
 	//Allow owners to delete modular doors without locks
 	
 	diag_log format["fn_actons: [PlayerUID: %1] [_ownerID: %2] [_isModularDoor: %3] [typeOfCursorTarget: %4]",_playerUID, _ownerID, _isModularDoor, _typeOfCursorTarget];
@@ -93,8 +94,8 @@ Find
 	if(_isModularDoor && (_playerUID == _ownerID)) then {
 		if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
 			_player_deleteBuild = true;
-		 };		
-	 };	
+		};		
+	};	
 	 
 REPLACE that, with
 
@@ -106,14 +107,14 @@ REPLACE that, with
 			// diag_log text "fn_selfactions remove: [can remove modular item]";
 			_player_deleteBuild = true;
 		};
-	 };
+	};
 	
 	//Allow owners and players with the code to delete modular doors without locks
 	if(_isModularDoor && (_playerUID == _ownerID || DZE_Lock_Door == _characterID)) then {
 		if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
 			_player_deleteBuild = true;
-		 };		
-	 };	
+		};		
+	};	
 	 
 **D**<br>
 Find

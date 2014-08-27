@@ -14,8 +14,8 @@ Features
 ========
 - Allows the owner to add other players to the plot pole so the player no longer needs to be online for their friend to build at their plot
 - Added players can add other players to the plot pole
-- Added players can remove other players from the plot pole (if using Plot for Life, owner cannot be removed)
+- Added players can remove other players from the plot pole (*if using Plot for Life, owner cannot be removed*)
 - Added players can upgrade all objects in range of the plot pole
 - Added players can build anything inside of the plot pole radius (except other plot poles obviously)
 - Added players can remove any object inside the plot pole radius
-- (Non Plot for Life Version Only) Player can add their own UID to the plot pole when they first build it so they don't lose access if they die
+- (*Non Plot for Life Version Only*) Player can add their own UID to the plot pole when they first build it so they don't lose access if they die

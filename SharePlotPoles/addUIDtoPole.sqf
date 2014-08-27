@@ -1,8 +1,9 @@
 //Add UIDs to Plot Pole by Rosska85
-private ["_plotPole","_PUIDtoAdd","_currentPUIDS"];
+private ["_addingSelf","_plotPole","_PUIDtoAdd","_currentPUIDS"];
 
-_plotPole = _this select 3;
-_PUIDtoAdd = player getVariable ["PUIDtoAdd", 0];
+_plotPole = _this select 3 select 0;
+_addingSelf = _this select 3 select 1;
+_PUIDtoAdd = if (_addingSelf) then {getPlayerUID player;} else {player getVariable ["PUIDtoAdd", 0];};
 _addedPUIDS = _plotPole getVariable ["AddedPUIDS", []];
 
 	//If the player already has rights on the pole, don't add them again

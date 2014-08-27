@@ -17,7 +17,9 @@ Find
 
 AFTER that, add
 
-	_nearplotPole = nearestObject [player,"Plastic_Pole_EP1_DZ"]; 
+	_nearplotPole = nearestObject [player,"Plastic_Pole_EP1_DZ"];
+	_nearplotPoleOwner = _nearplotPole getVariable ["ownerPUID","0"];
+	_nearplotPoleAdded = _nearplotPole getVariable ["AddedPUIDS", []];
 	_addedPUIDS = _cursorTarget getVariable ["AddedPUIDS", []];
 	_hasBuildRights = if (_ownerID != "0") then {((getPlayerUID player) in (_addedPUIDS));}; //Check it's not a map object/unbuilt object to avoid RPT spam then check if player has rights
 	_hasPlayerUID = player getVariable ["PUIDtoAdd", ""];
@@ -40,7 +42,7 @@ Find
 REPLACE that with
 
 	//Let players get other player's UID when near a plot pole
-	if (_isMan && (_nearPlotPole distance player < 5)) Then {
+	if (_isMan && (_nearPlotPole distance player < 5) && ((_playerUID == _nearplotPoleOwner) || (_playerUID in _nearplotPoleAdded))) then {
 		if (s_player_get_PUID < 0) then {
 			s_player_get_PUID = player addAction [format["<t color='#ff8000'>Get Player UID to add rights on plot pole</t>"], "SharePlotPoles\getPlayerUID.sqf", _cursorTarget, 5, false, true, "", ""];
 		};

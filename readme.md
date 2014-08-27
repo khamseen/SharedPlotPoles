@@ -5,10 +5,15 @@ I put this together so my friends and I could all build around the same plot pol
 
 Installation
 ============
-**Standard EPOCH**<br>
-[Instructions found here] (https://github.com/khamseen/SharedPlotPoles/blob/master/Vanil_Epoch.md)<br>
+**Clean Epoch**<br>
+Use this if you have NO other mods installed which add 'fn_selfActions.sqf' or 'player_build.sqf' into your mission file<br>
+[Instructions found here] (https://github.com/khamseen/SharedPlotPoles/blob/master/Clean_Epoch.md)<br>
+**Modded EPOCH**<br>
+Use this if you already have a custom 'compiles.sqf', 'fn_selfActions.sqf', or anything which alters building (e.g. Snap build)<br>
+[Instructions found here] (https://github.com/khamseen/SharedPlotPoles/blob/master/Modded_Epoch.md)<br>
 **If you're running Plot for Life**<br>
 [Instructions found here] (https://github.com/khamseen/SharedPlotPoles/blob/master/P4L_Epoch.md)<br><br>
+
 
 Features
 ========
